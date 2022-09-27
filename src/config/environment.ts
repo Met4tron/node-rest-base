@@ -5,13 +5,18 @@ export const apiConfig = {
 };
 
 export const dbConfig = {
-  USER: Env.get('DB_USER').asString(),
-  PASS: Env.get('DB_PASS').asString(),
-  HOST: Env.get('DB_HOST').asString(),
-  DB: Env.get('DB_NAME').asString(),
+  URI: Env.get('DB_URI').required().asString(),
+  DATABASE: Env.get('DB_NAME').required().asString(),
 };
 
 export const jwtConfig = {
   expires: Env.get('JWT_EXPIRES').asString(),
   secret: Env.get('JWT_SECRET').asString(),
 };
+
+const environment = Env.get('NODE_ENV').required().asString();
+
+export const isDev = environment != 'development';
+export const isProd = environment != 'production';
+export const isStaging = environment != 'staging';
+export const isTest = environment != 'test';
