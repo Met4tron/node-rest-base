@@ -4,10 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "",
-    "dev": "nodemon",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "build": "rimraf dist && swc src -d dist",
+    "dev": "NODE_ENV=development nodemon",
+    "prod": "NODE_ENV=production node ./dist/server.js",
+    "test": "NODE_ENV=test jest",
+    "test:watch": "jest --watch",
+    "types": "tsc --noEmit",
+    "types:watch": "tsc --noEmit --watch"
   },
   "keywords": [],
   "author": "Yuri Gomes (https://github.com/met4tron)",

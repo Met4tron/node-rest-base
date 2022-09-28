@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+import 'dotenv/config';
 import { application } from '@infra/app';
 import { connectDatabase } from '@infra/db/connection';
 import { apiConfig } from '@config/environment';
